@@ -16,6 +16,16 @@ namespace Full_GRASP_And_SOLID
 
         public Product FinalProduct { get; set; }
 
+        //Agregar una propiedad bool Cooked de sólo lectura; es false al inicio y pasa a true cuando se invoca void Cook() y pasa el tiempo indicado por GetCookTime()
+        public bool Cooked
+        {
+            get => Cooked;
+            private set => Cooked = false;
+        }
+        public void cocinado(){
+            Cooked = true;
+        }
+
         // Agregado por Creator
         public void AddStep(Product input, double quantity, Equipment equipment, int time)
         {
@@ -61,6 +71,22 @@ namespace Full_GRASP_And_SOLID
             }
 
             return result;
+        }
+        //Agregar un método int GetCookTime() que retorna la suma del tiempo de todos los pasos
+        public int GetCookTime()
+        {
+            int timetocook = 0;
+            foreach (Step step in steps)
+            {
+                timetocook += step.Time;
+            }
+            return timetocook;
+        }
+        //Agregar un método void Cook(). Usando la clase CountdownTimer provista, debe pasar la propiedad Cooked a true cuando pase el tiempo indicado por GetCookTime()
+        public void Cook(){
+            CountdownTimer tiempoCocina = new CountdownTimer();
+            TimerClient cambio = new TimerClientI(this);
+            tiempoCocina.Register(GetCookTime(), cambio);
         }
     }
 }
