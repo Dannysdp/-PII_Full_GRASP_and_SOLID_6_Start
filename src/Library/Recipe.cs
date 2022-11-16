@@ -73,7 +73,7 @@ namespace Full_GRASP_And_SOLID
         public int GetCookTime()
         {
             int timetocook = 0;
-            foreach (Step step in steps)
+            foreach (var step in steps)
             {
                 timetocook += step.Time;
             }
