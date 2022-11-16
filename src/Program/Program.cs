@@ -27,11 +27,11 @@ namespace Full_GRASP_And_SOLID
             recipe.AddStep(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60);
             recipe.AddStep("Dejar enfriar", 60);
 
-            IPrinter printer;
-            printer = new ConsolePrinter();
-            printer.PrintRecipe(recipe);
-            printer = new FilePrinter();
-            printer.PrintRecipe(recipe);
+            // IPrinter printer;
+            // printer = new ConsolePrinter();
+            // printer.PrintRecipe(recipe);
+            // printer = new FilePrinter();
+            // printer.PrintRecipe(recipe);
             Console.WriteLine($"Cooked: {recipe.Cooked}");
             recipe.Cook();
             Thread.Sleep(500); // 0.5 segundos

@@ -17,11 +17,8 @@ namespace Full_GRASP_And_SOLID
         public Product FinalProduct { get; set; }
 
         //Agregar una propiedad bool Cooked de sólo lectura; es false al inicio y pasa a true cuando se invoca void Cook() y pasa el tiempo indicado por GetCookTime()
-        public bool Cooked
-        {
-            get => Cooked;
-            private set => Cooked = false;
-        }
+        public bool Cooked {get; private set;} = false;
+        
         public void cocinado(){
             Cooked = true;
         }

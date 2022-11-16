@@ -7,7 +7,6 @@ namespace Full_GRASP_And_SOLID
         {
             this.Receta = recetaRecebida;
         }
-
         void TimerClient.TimeOut()
         {
             Receta.cocinado();
